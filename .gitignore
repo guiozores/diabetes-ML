@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+*.pkl
+.env
+diabetes.db
+*.sqlite3
+.DS_Store
+.ipynb_checkpoints/

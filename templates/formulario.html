@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulário de Avaliação de Diabetes</title>
+  </head>
+  <body>
+    <h2>Formulário de Avaliação de Diabetes</h2>
+    <form method="post">
+      Número de gestações (Pregnancies):
+      <input
+        type="number"
+        name="pregnancies"
+        step="1"
+        min="0"
+        value="0"
+      /><br />
+      Glicemia (Glucose, mg/dL):
+      <input type="number" name="glucose" step="0.1" required /><br />
+      Pressão Diastólica (BloodPressure, mmHg):
+      <input type="number" name="bloodpressure" step="0.1" /><br />
+      Espessura da pele (SkinThickness, mm):
+      <input type="number" name="skinthickness" step="0.1" /><br />
+      Insulina (Insulin, mu U/ml):
+      <input type="number" name="insulin" step="0.1" /><br />
+      IMC (BMI, kg/m²):
+      <input type="number" name="bmi" step="0.01" required /><br />
+      <fieldset>
+        <legend>Histórico Familiar de Diabetes</legend>
+        <label><input type="checkbox" name="parentes" value="pai"> Pai</label>
+        <label><input type="checkbox" name="parentes" value="mae"> Mãe</label>
+        <label><input type="checkbox" name="parentes" value="irmao"> Irmão</label>
+        <label><input type="checkbox" name="parentes" value="irma"> Irmã</label>
+        <label><input type="checkbox" name="parentes" value="avo"> Avô</label>
+        <label><input type="checkbox" name="parentes" value="avoa"> Avó</label>
+        <label><input type="checkbox" name="parentes" value="tio"> Tio</label>
+        <label><input type="checkbox" name="parentes" value="tia"> Tia</label>
+        <label><input type="checkbox" name="parentes" value="primo"> Primo</label>
+        <label><input type="checkbox" name="parentes" value="prima"> Prima</label>
+      </fieldset>
+      <small>Marque os parentes de primeiro e segundo grau que têm diagnóstico de diabetes.</small><br />
+      Idade (Age): <input type="number" name="age" step="1" required /><br />
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>
