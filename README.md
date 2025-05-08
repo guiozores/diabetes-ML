@@ -190,5 +190,3 @@ jupyter notebook DiabetesML_Analise.ipynb
 Consulte o arquivo `docs/06-Referencias_Bibliograficas.md` para todas as referências científicas e do dataset.
 
 ---
-
-> **Dúvidas?** Consulte a documentação em `docs/` ou abra uma issue!
