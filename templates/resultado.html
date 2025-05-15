@@ -2,21 +2,391 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <title>Resultado do Diagnóstico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resultado do Diagnóstico - DiabetesML</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/effects.css" />
   </head>
   <body>
-    <h2>Resultado do Diagnóstico</h2>
-    <p>Diagnóstico: {{ diagnostico }}</p>
-    <p>Explicação: {{ explicacao }}</p>
-    <p>Variáveis utilizadas: {{ variaveis }}</p>
-    <p>Recomendações: {{ recomendacoes }}</p>
-    <p>
-      <small
-        >Referência: ADA 2023, Pima Indians Diabetes Database,
-        <a href="/static/criterios_diagnostico.pdf"
-          >Critérios completos</a
-        ></small
-      >
-    </p>
+    <!-- Fundo simplificado -->
+    <div class="ripple-background"></div>
+
+    <header class="breathtaking-header">
+      <div class="container">
+        <a href="/" class="logo">
+          <img
+            src="/static/images/diabetes-icon.svg"
+            alt="Logo"
+            class="logo-icon"
+            width="32"
+            height="32"
+          />
+          <span>DiabetesML</span>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="/" class="active">Avaliação</a></li>
+            <li><a href="/sobre">Sobre</a></li>
+            <li><a href="/referencias">Referências</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="page-title">Resultado da Avaliação</h1>
+
+        <hr />
+
+        <div class="result-card">
+          <div>
+            <div class="result-header">
+              <h3>Avaliação de Risco para Diabetes</h3>
+            </div>
+            <div class="result-body">
+              {% if diagnostico == "Positivo" or diagnostico == 1 %}
+              <div class="result-status positive">Alto Risco para Diabetes</div>
+              {% else %}
+              <div class="result-status negative">
+                Baixo Risco para Diabetes
+              </div>
+              {% endif %}
+
+              <div class="result-param">
+                <h4>Resumo da Avaliação</h4>
+                <p
+                  style="
+                    margin-top: 1rem;
+                    line-height: 1.6;
+                    font-weight: bold;
+                    color: #333;
+                  "
+                >
+                  {% if diagnostico == "Positivo" or diagnostico == 1 %} Risco
+                  Alto para Diabetes {% else %} Risco Moderado / Possível
+                  Pré-Diabetes (38.2%) {% endif %}
+                </p>
+                <p style="margin-top: 1rem; line-height: 1.6">
+                  {{ explicacao }}
+                </p>
+              </div>
+
+              <div class="result-param">
+                <h4>Variáveis Utilizadas</h4>
+                <ul class="param-list">
+                  <li class="param-item">
+                    <span>Gestações:</span> {{ variaveis[0] }}
+                  </li>
+                  <li class="param-item">
+                    <span>Glicemia:</span> {{ variaveis[1] }} mg/dL
+                  </li>
+                  <li class="param-item">
+                    <span>Pressão:</span> {{ variaveis[2] }} mmHg
+                  </li>
+                  <li class="param-item">
+                    <span>Pele:</span> {{ variaveis[3] }} mm
+                  </li>
+                  <li class="param-item">
+                    <span>Insulina:</span> {{ variaveis[4] }} µU/ml
+                  </li>
+                  <li class="param-item">
+                    <span>IMC:</span> {{ variaveis[5] }} kg/m²
+                  </li>
+                  <li class="param-item">
+                    <span>Hist. Familiar:</span> {{ variaveis[6]|round(3) }}
+                  </li>
+                  <li class="param-item">
+                    <span>Idade:</span> {{ variaveis[7] }} anos
+                  </li>
+                </ul>
+              </div>
+
+              <div class="recommendations">
+                <h4>Recomendações Personalizadas</h4>
+                <div
+                  style="
+                    background-color: #f5f5f5;
+                    padding: 15px;
+                    border-left: 4px solid #3498db;
+                    margin-bottom: 15px;
+                  "
+                >
+                  <p style="font-weight: bold">{{ recomendacoes }}</p>
+                </div>
+
+                <h4 style="margin-top: 20px">Fatores de Risco Identificados</h4>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                  {% if variaveis[1] > 100 %}
+                  <li>
+                    <strong>Glicemia elevada:</strong> {{ variaveis[1] }} mg/dL
+                    (valor normal: abaixo de 100 mg/dL)
+                  </li>
+                  {% endif %} {% if variaveis[5] > 25 %}
+                  <li>
+                    <strong>IMC elevado:</strong> {{ variaveis[5] }} kg/m²
+                    (valor normal: entre 18.5 e 24.9)
+                  </li>
+                  {% endif %} {% if variaveis[6] > 0.5 %}
+                  <li>
+                    <strong>Histórico familiar significativo:</strong> Valor
+                    calculado {{ variaveis[6]|round(3) }}
+                  </li>
+                  {% endif %} {% if variaveis[7] > 45 %}
+                  <li>
+                    <strong>Idade:</strong> {{ variaveis[7] }} anos (risco
+                    aumenta após os 45 anos)
+                  </li>
+                  {% endif %} {% if variaveis[2] > 90 %}
+                  <li>
+                    <strong>Pressão arterial elevada:</strong> {{ variaveis[2]
+                    }} mmHg (valor normal: abaixo de 90 mmHg)
+                  </li>
+                  {% endif %} {% if not variaveis[1] > 100 and not variaveis[5]
+                  > 25 and not variaveis[6] > 0.5 and not variaveis[7] > 45 and
+                  not variaveis[2] > 90 %}
+                  <li>Nenhum fator de risco significativo identificado.</li>
+                  {% endif %}
+                </ul>
+                {% else %}
+                <p style="margin-top: 1rem">
+                  Mesmo com baixo risco, mantenha hábitos saudáveis:
+                </p>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                  <li>Alimentação balanceada rica em vegetais e frutas</li>
+                  <li>
+                    Atividade física regular (pelo menos 150 minutos por semana)
+                  </li>
+                  <li>Manutenção de peso saudável</li>
+                  <li>Controle do estresse</li>
+                  <li>Exames de rotina anuais</li>
+                </ul>
+                {% endif %}
+              </div>
+
+              <div class="btn-group" style="margin-top: 2rem">
+                <a href="/" class="btn btn-primary btn-glow">Nova Avaliação</a>
+                <a href="javascript:window.print()" class="btn btn-warning"
+                  >Imprimir Resultados</a
+                >
+              </div>
+
+              <div class="citation">
+                <p>
+                  Referência: American Diabetes Association (ADA) 2023, Pima
+                  Indians Diabetes Database.
+                  <a href="/static/criterios_diagnostico.pdf"
+                    >Critérios completos</a
+                  >
+                </p>
+                <p
+                  style="
+                    margin-top: 0.5rem;
+                    font-size: 0.8rem;
+                    font-style: italic;
+                  "
+                >
+                  Esta avaliação não substitui diagnóstico médico profissional.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Próximos Passos -->
+        <div
+          class="card"
+          style="
+            margin-top: 3rem;
+            padding: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+          "
+        >
+          <h3 style="margin-bottom: 1.5rem">Próximos Passos</h3>
+
+          {% if diagnostico == "Positivo" or diagnostico == 1 %}
+          <div
+            style="
+              background-color: rgba(231, 76, 60, 0.1);
+              border-left: 4px solid #e74c3c;
+              padding: 1.5rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <h4 style="color: #c0392b; margin-bottom: 0.5rem">
+              Alto risco detectado
+            </h4>
+            <p>
+              Recomendamos fortemente que procure um médico para uma avaliação
+              completa e exames laboratoriais específicos para diabetes.
+            </p>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 1.5rem;
+              margin-top: 2rem;
+            "
+          >
+            <div
+              class="spotlight"
+              style="
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+              "
+            >
+              <h4>1. Consulta Médica</h4>
+              <p style="margin-top: 0.5rem">
+                Agende uma consulta com um clínico geral ou endocrinologista
+                para avaliação completa.
+              </p>
+            </div>
+
+            <div
+              class="spotlight"
+              style="
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+              "
+            >
+              <h4>2. Exames Recomendados</h4>
+              <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                <li>Glicemia de jejum</li>
+                <li>Hemoglobina glicada (HbA1c)</li>
+                <li>Teste de tolerância à glicose</li>
+              </ul>
+            </div>
+
+            <div
+              class="spotlight"
+              style="
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+              "
+            >
+              <h4>3. Mudanças no Estilo de Vida</h4>
+              <ul style="margin-top: 0.5rem; padding-left: 1.5rem">
+                <li>Alimentação balanceada</li>
+                <li>Prática regular de atividade física</li>
+                <li>Monitoramento da glicemia</li>
+              </ul>
+            </div>
+          </div>
+          {% else %}
+          <div
+            style="
+              background-color: rgba(46, 204, 113, 0.1);
+              border-left: 4px solid #2ecc71;
+              padding: 1.5rem;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <h4 style="color: #27ae60; margin-bottom: 0.5rem">
+              Baixo risco detectado
+            </h4>
+            <p>
+              Seu risco atual é baixo, mas mantenha hábitos saudáveis e realize
+              check-ups regulares.
+            </p>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 1.5rem;
+              margin-top: 2rem;
+            "
+          >
+            <div
+              class="spotlight"
+              style="
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+              "
+            >
+              <h4>1. Manutenção da Saúde</h4>
+              <p style="margin-top: 0.5rem">
+                Continue com hábitos saudáveis e realize exames de rotina
+                anualmente.
+              </p>
+            </div>
+
+            <div
+              class="spotlight"
+              style="
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+              "
+            >
+              <h4>2. Alimentação Saudável</h4>
+              <p style="margin-top: 0.5rem">
+                Priorize alimentos in natura, reduza o consumo de açúcares e
+                ultraprocessados.
+              </p>
+            </div>
+
+            <div
+              class="spotlight"
+              style="
+                background-color: #f8f9fa;
+                padding: 1.5rem;
+                border-radius: 8px;
+              "
+            >
+              <h4>3. Atividade Física</h4>
+              <p style="margin-top: 0.5rem">
+                Mantenha-se ativo com pelo menos 150 minutos de atividade física
+                por semana.
+              </p>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </main>
+
+    <!-- Removido container para partículas -->
+
+    <footer
+      style="
+        background-color: #3498db;
+        color: white;
+        padding: 1.5rem 0;
+        margin-top: 3rem;
+      "
+    >
+      <div class="container">
+        <div class="footer-content">
+          <p>
+            DiabetesML - Sistema de Avaliação de Risco para Diabetes &copy; 2025
+          </p>
+          <div class="footer-links">
+            <a href="/privacidade" style="color: white; margin-right: 15px"
+              >Política de Privacidade</a
+            >
+            <a href="/termos" style="color: white; margin-right: 15px"
+              >Termos de Uso</a
+            >
+            <a href="/contato" style="color: white">Contato</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/result-fix.js"></script>
   </body>
 </html>

@@ -2,45 +2,504 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulário de Avaliação de Diabetes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/effects.css" />
   </head>
   <body>
-    <h2>Formulário de Avaliação de Diabetes</h2>
-    <form method="post">
-      Número de gestações (Pregnancies):
-      <input
-        type="number"
-        name="pregnancies"
-        step="1"
-        min="0"
-        value="0"
-      /><br />
-      Glicemia (Glucose, mg/dL):
-      <input type="number" name="glucose" step="0.1" required /><br />
-      Pressão Diastólica (BloodPressure, mmHg):
-      <input type="number" name="bloodpressure" step="0.1" /><br />
-      Espessura da pele (SkinThickness, mm):
-      <input type="number" name="skinthickness" step="0.1" /><br />
-      Insulina (Insulin, mu U/ml):
-      <input type="number" name="insulin" step="0.1" /><br />
-      IMC (BMI, kg/m²):
-      <input type="number" name="bmi" step="0.01" required /><br />
-      <fieldset>
-        <legend>Histórico Familiar de Diabetes</legend>
-        <label><input type="checkbox" name="parentes" value="pai"> Pai</label>
-        <label><input type="checkbox" name="parentes" value="mae"> Mãe</label>
-        <label><input type="checkbox" name="parentes" value="irmao"> Irmão</label>
-        <label><input type="checkbox" name="parentes" value="irma"> Irmã</label>
-        <label><input type="checkbox" name="parentes" value="avo"> Avô</label>
-        <label><input type="checkbox" name="parentes" value="avoa"> Avó</label>
-        <label><input type="checkbox" name="parentes" value="tio"> Tio</label>
-        <label><input type="checkbox" name="parentes" value="tia"> Tia</label>
-        <label><input type="checkbox" name="parentes" value="primo"> Primo</label>
-        <label><input type="checkbox" name="parentes" value="prima"> Prima</label>
-      </fieldset>
-      <small>Marque os parentes de primeiro e segundo grau que têm diagnóstico de diabetes.</small><br />
-      Idade (Age): <input type="number" name="age" step="1" required /><br />
-      <input type="submit" value="Enviar" />
-    </form>
+    <!-- Fundo simplificado -->
+    <div class="ripple-background"></div>
+
+    <header class="breathtaking-header">
+      <div class="container">
+        <a href="/" class="logo">
+          <img
+            src="/static/images/diabetes-icon.svg"
+            alt="Logo"
+            class="logo-icon"
+            width="32"
+            height="32"
+          />
+          <span>DiabetesML</span>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="/" class="active">Avaliação</a></li>
+            <li><a href="/sobre">Sobre</a></li>
+            <li><a href="/referencias">Referências</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wave-shape"></div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="page-title fade-in typing-effect">
+          Avaliação de Risco de Diabetes
+        </h1>
+
+        <div class="glowing-line"></div>
+
+        <div class="card glass-card card-3d fade-in fade-in-delay-1">
+          <div class="card-3d-inner">
+            <form method="post" id="diabetes-form">
+              <div class="form-grid">
+                <!-- Dados Pessoais -->
+                <div class="form-group">
+                  <label for="age">
+                    Idade (Anos)
+                    <div class="tooltip">
+                      <span class="tooltip-icon">?</span>
+                      <span class="tooltip-text"
+                        >A idade é um fator de risco importante para diabetes
+                        tipo 2.</span
+                      >
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="age"
+                    id="age"
+                    class="form-control"
+                    step="1"
+                    min="18"
+                    max="100"
+                    required
+                  />
+                  <small>Entre 18 e 100 anos</small>
+                </div>
+
+                <!-- Gestações -->
+                <div class="form-group">
+                  <label for="pregnancies">
+                    Número de gestações
+                    <div class="tooltip">
+                      <span class="tooltip-icon">?</span>
+                      <span class="tooltip-text"
+                        >Para pessoas que nunca engravidaram, use 0.</span
+                      >
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="pregnancies"
+                    id="pregnancies"
+                    class="form-control"
+                    step="1"
+                    min="0"
+                    value="0"
+                  />
+                  <small>Número total de gestações</small>
+                </div>
+
+                <!-- Glicemia -->
+                <div class="form-group">
+                  <label for="glucose">
+                    Glicemia (mg/dL)
+                    <div class="tooltip">
+                      <span class="tooltip-icon">?</span>
+                      <span class="tooltip-text"
+                        >Nível de glicose no sangue em jejum. Um valor acima de
+                        126 mg/dL pode indicar diabetes.</span
+                      >
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="glucose"
+                    id="glucose"
+                    class="form-control"
+                    step="0.1"
+                    min="60"
+                    max="300"
+                    required
+                  />
+                  <small>Valor normal em jejum: 70-99 mg/dL</small>
+                </div>
+
+                <!-- Pressão arterial -->
+                <div class="form-group">
+                  <label for="bloodpressure">
+                    Pressão Arterial (mmHg)
+                    <div class="tooltip">
+                      <span class="tooltip-icon">?</span>
+                      <span class="tooltip-text"
+                        >Valor da pressão diastólica (o número menor).</span
+                      >
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="bloodpressure"
+                    id="bloodpressure"
+                    class="form-control"
+                    step="0.1"
+                    min="40"
+                    max="130"
+                  />
+                  <small>Pressão diastólica (valor de referência: 60-80)</small>
+                </div>
+
+                <!-- Espessura da pele -->
+                <div class="form-group">
+                  <label for="skinthickness">
+                    Espessura da Pele (mm)
+                    <div class="tooltip">
+                      <span class="tooltip-icon">?</span>
+                      <span class="tooltip-text"
+                        >Medida da dobra cutânea do tríceps. Se não tiver esse
+                        dado, pode deixar em branco.</span
+                      >
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="skinthickness"
+                    id="skinthickness"
+                    class="form-control"
+                    step="0.1"
+                    min="0"
+                    max="100"
+                  />
+                  <small>Medida da dobra cutânea do tríceps</small>
+                </div>
+
+                <!-- Insulina -->
+                <div class="form-group">
+                  <label for="insulin">
+                    Insulina (µU/ml)
+                    <div class="tooltip">
+                      <span class="tooltip-icon">?</span>
+                      <span class="tooltip-text"
+                        >Nível de insulina no sangue em jejum. Se não tiver esse
+                        dado, pode deixar em branco.</span
+                      >
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="insulin"
+                    id="insulin"
+                    class="form-control"
+                    step="0.1"
+                    min="0"
+                    max="850"
+                  />
+                  <small>Nível de insulina sérica</small>
+                </div>
+
+                <!-- IMC -->
+                <div class="form-group">
+                  <label for="bmi">
+                    IMC (kg/m²)
+                    <div class="tooltip">
+                      <span class="tooltip-icon">?</span>
+                      <span class="tooltip-text"
+                        >Índice de Massa Corporal. Calculado por: peso (kg) /
+                        altura² (m)</span
+                      >
+                    </div>
+                  </label>
+                  <input
+                    type="number"
+                    name="bmi"
+                    id="bmi"
+                    class="form-control"
+                    step="0.01"
+                    min="15"
+                    max="50"
+                    required
+                  />
+                  <small>Valor normal: 18,5-24,9</small>
+                </div>
+              </div>
+
+              <fieldset class="fade-in fade-in-delay-2">
+                <legend>
+                  Histórico Familiar de Diabetes
+                  <div class="tooltip">
+                    <span class="tooltip-icon">?</span>
+                    <span class="tooltip-text"
+                      >O histórico familiar é um fator importante para o
+                      desenvolvimento de diabetes.</span
+                    >
+                  </div>
+                </legend>
+                <div class="checkbox-grid">
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="pai"
+                      id="pai"
+                    />
+                    <label for="pai">Pai</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="mae"
+                      id="mae"
+                    />
+                    <label for="mae">Mãe</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="irmao"
+                      id="irmao"
+                    />
+                    <label for="irmao">Irmão</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="irma"
+                      id="irma"
+                    />
+                    <label for="irma">Irmã</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="avo"
+                      id="avo"
+                    />
+                    <label for="avo">Avô</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="avoa"
+                      id="avoa"
+                    />
+                    <label for="avoa">Avó</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="tio"
+                      id="tio"
+                    />
+                    <label for="tio">Tio</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="tia"
+                      id="tia"
+                    />
+                    <label for="tia">Tia</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="primo"
+                      id="primo"
+                    />
+                    <label for="primo">Primo</label>
+                  </div>
+                  <div class="checkbox-container">
+                    <input
+                      type="checkbox"
+                      name="parentes"
+                      value="prima"
+                      id="prima"
+                    />
+                    <label for="prima">Prima</label>
+                  </div>
+                </div>
+                <small
+                  >Marque os parentes de primeiro e segundo grau que têm
+                  diagnóstico de diabetes.</small
+                >
+              </fieldset>
+
+              <div class="btn-group fade-in fade-in-delay-3">
+                <button type="button" id="reset-form" class="btn btn-warning">
+                  Limpar
+                </button>
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg btn-glow pulse"
+                >
+                  Avaliar Risco
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Estatísticas sobre diabetes -->
+        <div
+          class="card glass-card reveal-on-scroll"
+          style="margin-top: 3rem; padding: 2rem"
+        >
+          <h3 style="margin-bottom: 1.5rem; text-align: center">
+            Diabetes em Números
+          </h3>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 2rem;
+              text-align: center;
+            "
+          >
+            <div>
+              <div
+                class="counter"
+                data-count="537"
+                style="
+                  font-size: 2.5rem;
+                  font-weight: bold;
+                  color: var(--secondary-color);
+                "
+              >
+                0
+              </div>
+              <p>milhões de pessoas com diabetes no mundo</p>
+            </div>
+            <div>
+              <div
+                class="counter"
+                data-count="16"
+                style="
+                  font-size: 2.5rem;
+                  font-weight: bold;
+                  color: var(--secondary-color);
+                "
+              >
+                0
+              </div>
+              <p>milhões de brasileiros vivem com diabetes</p>
+            </div>
+            <div>
+              <div
+                class="counter"
+                data-count="50"
+                style="
+                  font-size: 2.5rem;
+                  font-weight: bold;
+                  color: var(--secondary-color);
+                "
+              >
+                0
+              </div>
+              <p>% dos casos não são diagnosticados</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glowing-line"></div>
+
+        <!-- Informações adicionais -->
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+          "
+        >
+          <div class="glass-card reveal-on-scroll" style="padding: 1.5rem">
+            <img
+              src="/static/images/info-icon.svg"
+              alt="Informação"
+              style="width: 48px; height: 48px; margin-bottom: 1rem"
+            />
+            <h3>O que é Diabetes?</h3>
+            <p style="margin-top: 1rem; line-height: 1.6">
+              Diabetes é uma condição crônica caracterizada por níveis elevados
+              de glicose no sangue, que ocorre quando o corpo não produz
+              insulina suficiente ou não consegue usar efetivamente a insulina
+              que produz.
+            </p>
+          </div>
+
+          <div class="glass-card reveal-on-scroll" style="padding: 1.5rem">
+            <img
+              src="/static/images/warning-icon.svg"
+              alt="Alerta"
+              style="width: 48px; height: 48px; margin-bottom: 1rem"
+            />
+            <h3>Fatores de Risco</h3>
+            <p style="margin-top: 1rem; line-height: 1.6">
+              Os principais fatores de risco incluem histórico familiar, excesso
+              de peso, idade acima de 45 anos, sedentarismo, pressão alta e
+              níveis elevados de colesterol.
+            </p>
+          </div>
+
+          <div class="glass-card reveal-on-scroll" style="padding: 1.5rem">
+            <img
+              src="/static/images/health-icon.svg"
+              alt="Saúde"
+              style="width: 48px; height: 48px; margin-bottom: 1rem"
+            />
+            <h3>Prevenção</h3>
+            <p style="margin-top: 1rem; line-height: 1.6">
+              Mantenha um peso saudável, pratique atividades físicas
+              regularmente, adote uma alimentação balanceada e monitore
+              regularmente seus níveis de glicose.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Container para partículas -->
+    <div
+      class="particle-container"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      "
+    ></div>
+
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+
+    <footer
+      class="breathtaking-header"
+      style="padding: 1.5rem 0; margin-top: 3rem"
+    >
+      <div class="container">
+        <div class="footer-content">
+          <p>
+            DiabetesML - Sistema de Avaliação de Risco para Diabetes &copy; 2025
+          </p>
+          <div class="footer-links">
+            <a href="/privacidade" class="spotlight">Política de Privacidade</a>
+            <a href="/termos" class="spotlight">Termos de Uso</a>
+            <a href="/contato" class="spotlight">Contato</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/effects.js"></script>
   </body>
 </html>

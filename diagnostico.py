@@ -53,9 +53,16 @@ def calcular_imc(peso, altura_cm):
 def diagnostico_ml(entrada):
     modelo = load('modelo_diabetes.pkl')
     prob = modelo.predict_proba([entrada])[0][1]  # Probabilidade de ser diabetes
-    if prob < 0.3:
+    
+    # Guardando a probabilidade como um atributo da função para acesso posterior
+    diagnostico_ml.last_probability = prob * 100  # Convertendo para porcentagem
+    
+    if prob >= 0.5:
+        return "Positivo"  # Risco alto retorna "Positivo" para compatibilidade
+    elif prob < 0.3:
         return f"Baixo Risco ({prob:.1%})"
-    elif prob < 0.5:
-        return f"Risco Moderado / Possível Pré-Diabetes ({prob:.1%})"
     else:
-        return f"Alto Risco / Provável Diabetes ({prob:.1%})"
+        return f"Risco Moderado / Possível Pré-Diabetes ({prob:.1%})"
+
+# Inicializando o atributo de probabilidade
+diagnostico_ml.last_probability = 0.0

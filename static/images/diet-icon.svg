@@ -1,0 +1,17 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dietGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2ecc71;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="white" stroke="#ddd" stroke-width="2" />
+  <g transform="translate(50, 50) scale(0.5)">
+    <path d="M150,60 C150,60 150,130 150,130 C150,130 90,130 90,130 C90,130 90,60 90,60 C90,60 150,60 150,60 Z" fill="url(#dietGradient)"/>
+    <path d="M150,150 C150,150 150,180 150,180 C150,180 90,180 90,180 C90,180 90,150 90,150 C90,150 150,150 150,150 Z" fill="url(#dietGradient)"/>
+    <path d="M170,60 C170,60 170,180 170,180 C170,180 190,180 190,180 C190,180 190,60 190,60 C190,60 170,60 170,60 Z" fill="url(#dietGradient)"/>
+    <path d="M50,60 C50,60 50,180 50,180 C50,180 70,180 70,180 C70,180 70,60 70,60 C70,60 50,60 50,60 Z" fill="url(#dietGradient)"/>
+    <path d="M30,130 C30,130 30,150 30,150 C30,150 70,150 70,150 C70,150 70,130 70,130 C70,130 30,130 30,130 Z" fill="url(#dietGradient)"/>
+  </g>
+  <text x="100" y="165" text-anchor="middle" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Alimentação Saudável</text>
+</svg>

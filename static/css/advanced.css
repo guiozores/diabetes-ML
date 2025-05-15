@@ -1,0 +1,444 @@
+/* Temas de cores adicionais para personalização */
+.theme-blue {
+  --primary-color: #1a237e;
+  --secondary-color: #0d47a1;
+  --accent-color: #42a5f5;
+}
+
+.theme-green {
+  --primary-color: #1b5e20;
+  --secondary-color: #2e7d32;
+  --accent-color: #66bb6a;
+}
+
+.theme-purple {
+  --primary-color: #4a148c;
+  --secondary-color: #6a1b9a;
+  --accent-color: #ab47bc;
+}
+
+/* Estilos para o painel informativo de dashboard */
+.dashboard-panel {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.dashboard-item {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: var(--transition);
+}
+
+.dashboard-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.dashboard-number {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.dashboard-label {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* Estilos para categorização de risco */
+.risk-meter {
+  position: relative;
+  height: 10px;
+  background: linear-gradient(90deg, #2ecc71, #f1c40f, #e74c3c);
+  border-radius: 5px;
+  margin: 2rem 0;
+}
+
+.risk-indicator {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 3px solid #333;
+  border-radius: 50%;
+  top: -5px;
+  transform: translateX(-50%);
+  transition: left 1s ease-out;
+}
+
+.risk-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: #7f8c8d;
+  font-size: 0.8rem;
+}
+
+/* Estilos para seções com abas */
+.tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: var(--transition);
+}
+
+.tab.active {
+  border-bottom-color: var(--secondary-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+  padding: 1.5rem 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Efeito de impressão digital para cards de histórico familiar */
+.fingerprint-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.fingerprint-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23f1f1f1" stroke-width="2" d="M50,10 C30,10 15,25 15,45 C15,65 35,85 50,90 M50,10 C70,10 85,25 85,45 C85,65 65,85 50,90 M50,20 C35,20 25,30 25,45 C25,60 40,75 50,80 M50,20 C65,20 75,30 75,45 C75,60 60,75 50,80 M50,30 C40,30 35,35 35,45 C35,55 45,65 50,70 M50,30 C60,30 65,35 65,45 C65,55 55,65 50,70 M50,40 C45,40 45,40 45,45 C45,50 45,55 50,60 M50,40 C55,40 55,40 55,45 C55,50 55,55 50,60"/></svg>');
+  background-size: 100px 100px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Ícones personalizados inline */
+.icon-inline {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-right: 0.2em;
+}
+
+/* Badges coloridos informativos */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.8em;
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 20px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-primary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.badge-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.badge-warning {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.badge-danger {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.badge-info {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Timeline para histórico de avaliações */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin: 2rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #ddd;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.3rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  border: 3px solid white;
+  box-shadow: var(--shadow);
+}
+
+.timeline-content {
+  background-color: #f8f9fa;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin-bottom: 0.5rem;
+}
+
+/* Menu lateral avançado */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+/* Layout com sidebar */
+.with-sidebar {
+  padding-left: 250px;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+.with-sidebar.sidebar-closed {
+  padding-left: 0;
+}
+
+/* Tooltip avançado com imagem */
+.tooltip-enhanced {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-enhanced .tooltip-content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.tooltip-enhanced:hover .tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-image {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.tooltip-description {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+
+/* Seletores personalizados */
+.custom-select-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.custom-select-selected {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  padding: 12px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-select-selected::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--primary-color);
+}
+
+.custom-select-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none;
+}
+
+.custom-select-option {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.custom-select-option:hover {
+  background-color: #f1f1f1;
+}
+
+.custom-select-container.open .custom-select-options {
+  display: block;
+}
+
+/* Estilos para botões 3D */
+.btn-3d {
+  position: relative;
+  border: none;
+  background: var(--secondary-color);
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 0 darken(var(--secondary-color), 10%);
+  transition: all 0.1s;
+}
+
+.btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 darken(var(--secondary-color), 10%);
+}
+
+.btn-3d:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 darken(var(--secondary-color), 10%);
+}

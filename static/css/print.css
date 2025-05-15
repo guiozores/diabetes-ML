@@ -1,0 +1,193 @@
+/* Estilos para impressão - diabetes risk assessment */
+@media print {
+  /* Estilos gerais para impressão */
+  body {
+    font-family: serif;
+    line-height: 1.5;
+    font-size: 12pt;
+    color: #000;
+    background-color: #fff;
+  }
+
+  /* Ocultar elementos não necessários para impressão */
+  nav,
+  .sidebar,
+  .sidebar-toggle,
+  button:not(.print-button),
+  .no-print,
+  footer,
+  .decoration-element,
+  .animated-element,
+  .particles-container,
+  .ripple-effect {
+    display: none !important;
+  }
+
+  /* Garantir que o conteúdo se ajuste ao papel */
+  .container,
+  .content-wrapper,
+  .card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: none !important;
+  }
+
+  /* Melhorar a aparência dos títulos */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    font-weight: bold;
+    margin-top: 20pt;
+  }
+
+  h1 {
+    font-size: 20pt;
+    margin-bottom: 20pt;
+  }
+
+  h2 {
+    font-size: 16pt;
+    margin-bottom: 15pt;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-bottom: 10pt;
+  }
+
+  /* Evitar quebras de página em elementos importantes */
+  .result-card,
+  .recommendation-section,
+  .risk-assessment,
+  table {
+    page-break-inside: avoid;
+  }
+
+  /* Mostrar URLs após os links */
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    font-style: italic;
+  }
+
+  /* Não mostrar URL para links internos */
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* Melhorar a aparência das tabelas */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20pt 0;
+  }
+
+  th,
+  td {
+    padding: 5pt;
+    border: 1pt solid #000;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f1f1f1 !important;
+    font-weight: bold;
+  }
+
+  /* Melhorar a aparência de imagens e gráficos */
+  img,
+  svg,
+  .chart-container,
+  canvas {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Adicionar cabeçalho e rodapé */
+  @page {
+    margin: 2cm;
+  }
+
+  /* Personalizar cabeçalho da página de resultados */
+  .print-header {
+    display: block !important;
+    text-align: center;
+    margin-bottom: 20pt;
+    border-bottom: 1pt solid #000;
+    padding-bottom: 10pt;
+  }
+
+  .print-header .logo {
+    max-height: 50pt;
+  }
+
+  /* Rodapé com informações de contato */
+  .print-footer {
+    display: block !important;
+    text-align: center;
+    margin-top: 20pt;
+    border-top: 1pt solid #000;
+    padding-top: 10pt;
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Adicionar seção específica para impressão */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Estilos específicos para relatório de diabetes */
+  .risk-result {
+    font-size: 16pt;
+    font-weight: bold;
+    padding: 10pt;
+    border: 2pt solid #000;
+    text-align: center;
+    margin: 20pt 0;
+  }
+
+  .risk-result.high-risk {
+    border-color: #e74c3c;
+  }
+
+  .risk-result.low-risk {
+    border-color: #2ecc71;
+  }
+
+  .risk-factors {
+    margin: 15pt 0;
+  }
+
+  .risk-factors li {
+    margin-bottom: 5pt;
+  }
+
+  .recommendations {
+    margin: 15pt 0;
+    padding: 10pt;
+    border: 1pt solid #000;
+  }
+
+  .input-summary {
+    margin: 15pt 0;
+    font-size: 10pt;
+  }
+
+  /* QR Code para acesso online */
+  .qr-code {
+    display: block !important;
+    text-align: center;
+    margin: 20pt 0;
+  }
+}

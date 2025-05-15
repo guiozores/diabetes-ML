@@ -47,7 +47,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 # max_depth=8: limita a profundidade para evitar overfitting
 # min_samples_split=4: exige pelo menos 4 amostras para split
 # random_state=42: garante reprodutibilidade
-# Modelo Random Forest com parâmetros do pesquisador
+# Modelo Random Forest com parâmetros do pesquisador (AKMESE, Omer Faruk) conforme artigo:
+
 modelo = RandomForestClassifier(
     criterion='gini',      # Critério de impureza
     n_estimators=100,      # Número de árvores

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Referências Científicas - DiabetesML</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/effects.css" />
+  </head>
+  <body>
+    <!-- Fundo com ondulação -->
+    <div class="ripple-background">
+      <div class="circle circle1"></div>
+      <div class="circle circle2"></div>
+      <div class="circle circle3"></div>
+      <div class="circle circle4"></div>
+    </div>
+
+    <header class="breathtaking-header">
+      <div class="container">
+        <a href="/" class="logo float">
+          <img
+            src="/static/images/diabetes-icon.svg"
+            alt="Logo"
+            class="logo-icon"
+            width="32"
+            height="32"
+          />
+          <span>DiabetesML</span>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="/" class="spotlight">Avaliação</a></li>
+            <li><a href="/sobre" class="spotlight">Sobre</a></li>
+            <li>
+              <a href="/referencias" class="active spotlight">Referências</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="wave-shape"></div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="page-title fade-in typing-effect">
+          Referências Científicas
+        </h1>
+
+        <div class="glowing-line"></div>
+
+        <div class="card glass-card card-3d fade-in fade-in-delay-1">
+          <div class="card-3d-inner">
+            <h3>Dataset</h3>
+            <p style="line-height: 1.6; margin-top: 1rem">
+              O modelo de machine learning utilizado nesta aplicação foi
+              treinado com o dataset Pima Indians Diabetes, originalmente do
+              Instituto Nacional de Diabetes e Doenças Digestivas e Renais dos
+              EUA. Este conjunto de dados é amplamente utilizado em pesquisas na
+              área de diabetes.
+            </p>
+            <div
+              style="
+                background-color: #f8f9fa;
+                padding: 1rem;
+                margin-top: 1rem;
+                border-radius: 8px;
+              "
+            >
+              <p style="font-style: italic">
+                Smith, J.W., Everhart, J.E., Dickson, W.C., Knowler, W.C., &
+                Johannes, R.S. (1988). Using the ADAP learning algorithm to
+                forecast the onset of diabetes mellitus. In Proceedings of the
+                Symposium on Computer Applications and Medical Care (pp.
+                261--265). IEEE Computer Society Press.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card glass-card reveal-on-scroll">
+          <h3>Critérios Diagnósticos</h3>
+          <p style="line-height: 1.6; margin-top: 1rem">
+            Os critérios utilizados para avaliação de risco e recomendações
+            seguem as diretrizes da Associação Americana de Diabetes (ADA) e da
+            Sociedade Brasileira de Diabetes (SBD).
+          </p>
+
+          <h4 style="margin-top: 1.5rem">
+            Critérios da ADA para diagnóstico de diabetes:
+          </h4>
+          <ul
+            style="line-height: 1.6; margin-top: 0.5rem; padding-left: 1.5rem"
+          >
+            <li>Glicemia de jejum ≥ 126 mg/dL (7,0 mmol/L)</li>
+            <li>
+              Glicemia 2 horas após sobrecarga com 75g de glicose ≥ 200 mg/dL
+              (11,1 mmol/L)
+            </li>
+            <li>Hemoglobina glicada (HbA1c) ≥ 6,5%</li>
+            <li>
+              Em paciente com sintomas clássicos de hiperglicemia ou crise
+              hiperglicêmica, glicemia ao acaso ≥ 200 mg/dL (11,1 mmol/L)
+            </li>
+          </ul>
+
+          <div
+            style="
+              background-color: #f8f9fa;
+              padding: 1rem;
+              margin-top: 1rem;
+              border-radius: 8px;
+            "
+          >
+            <p style="font-style: italic">
+              American Diabetes Association. "2. Classification and Diagnosis of
+              Diabetes: Standards of Medical Care in Diabetes—2023." Diabetes
+              Care, vol. 46, no. Supplement_1, Jan. 2023, pp. S19–S40.
+            </p>
+          </div>
+        </div>
+
+        <div class="card glass-card reveal-on-scroll">
+          <h3>Fatores de Risco para Diabetes</h3>
+          <p style="line-height: 1.6; margin-top: 1rem">
+            Os principais fatores de risco considerados pelo nosso modelo
+            incluem:
+          </p>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 1.5rem;
+              margin-top: 1.5rem;
+            "
+          >
+            <div
+              style="
+                background-color: #f8f9fa;
+                padding: 1.2rem;
+                border-radius: 8px;
+              "
+            >
+              <h4 style="color: var(--secondary-color)">
+                Fatores Não Modificáveis
+              </h4>
+              <ul
+                style="
+                  line-height: 1.6;
+                  margin-top: 0.8rem;
+                  padding-left: 1.5rem;
+                "
+              >
+                <li>Idade superior a 45 anos</li>
+                <li>História familiar de diabetes</li>
+                <li>Histórico de diabetes gestacional</li>
+                <li>Síndrome dos ovários policísticos</li>
+                <li>Etnia (populações de maior risco)</li>
+              </ul>
+            </div>
+
+            <div
+              style="
+                background-color: #f8f9fa;
+                padding: 1.2rem;
+                border-radius: 8px;
+              "
+            >
+              <h4 style="color: var(--secondary-color)">
+                Fatores Modificáveis
+              </h4>
+              <ul
+                style="
+                  line-height: 1.6;
+                  margin-top: 0.8rem;
+                  padding-left: 1.5rem;
+                "
+              >
+                <li>Sobrepeso e obesidade (IMC ≥ 25 kg/m²)</li>
+                <li>Sedentarismo</li>
+                <li>Hipertensão arterial (≥ 140/90 mmHg)</li>
+                <li>Dislipidemia</li>
+                <li>Dieta inadequada</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card glass-card reveal-on-scroll">
+          <h3>Publicações Científicas Adicionais</h3>
+          <ul style="line-height: 1.6; margin-top: 1rem; padding-left: 1.5rem">
+            <li>
+              <p>
+                <strong>IDF Diabetes Atlas, 10ª edição (2021)</strong><br />
+                International Diabetes Federation. "IDF Diabetes Atlas." 10th
+                edition, 2021.
+              </p>
+            </li>
+            <li style="margin-top: 1rem">
+              <p>
+                <strong>Diretrizes Brasileiras de Diabetes</strong><br />
+                Sociedade Brasileira de Diabetes. "Diretrizes da Sociedade
+                Brasileira de Diabetes 2019-2020."
+              </p>
+            </li>
+            <li style="margin-top: 1rem">
+              <p>
+                <strong>Machine Learning em Diabetes</strong><br />
+                Kavakiotis et al. "Machine Learning and Data Mining Methods in
+                Diabetes Research." Computational and Structural Biotechnology
+                Journal, vol. 15, 2017, pp. 104-116.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="btn-group"
+          style="margin-top: 2rem; justify-content: center"
+        >
+          <a href="/" class="btn btn-primary">Fazer Avaliação</a>
+          <a href="/sobre" class="btn">Sobre o Projeto</a>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="breathtaking-header"
+      style="padding: 1.5rem 0; margin-top: 3rem"
+    >
+      <div class="container">
+        <div class="footer-content">
+          <p>
+            DiabetesML - Sistema de Avaliação de Risco para Diabetes &copy; 2025
+          </p>
+          <div class="footer-links">
+            <a href="/privacidade" class="spotlight">Política de Privacidade</a>
+            <a href="/termos" class="spotlight">Termos de Uso</a>
+            <a href="/contato" class="spotlight">Contato</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Container para partículas -->
+    <div
+      class="particle-container"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      "
+    ></div>
+
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/effects.js"></script>
+  </body>
+</html>

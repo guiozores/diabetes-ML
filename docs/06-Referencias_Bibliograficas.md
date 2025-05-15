@@ -7,4 +7,7 @@
 3. ALBERTI, K. G. M. M.; ZIMMET, P. Z. Definition, diagnosis and classification of diabetes mellitus and its complications. _Diabetic Medicine_, v. 15, n. 7, p. 539-553, 1998. Disponível em: <https://pmc.ncbi.nlm.nih.gov/articles/PMC8306487/>. Acesso em: 08 maio 2025.
 
 4. KAGGLE. Diabetes Dataset (Pima Indians Diabetes Database). Disponível em: <https://www.kaggle.com/datasets/akshaydattatraykhare/diabetes-dataset>. Acesso em: 08 maio 2025.
+
    - O dataset utilizado neste projeto é o Pima Indians Diabetes Database, originalmente publicado em estudos científicos sobre predição de diabetes e amplamente utilizado em pesquisas de machine learning. Uma das referências clássicas é: SMITH, J. W.; EVERHART, J. E.; DICKSON, W. C.; KNOWLER, W. C.; JOHANNES, R. S. Using the ADAP learning algorithm to forecast the onset of diabetes mellitus. _Proceedings of the Annual Symposium on Computer Application in Medical Care_, p. 261–265, 1988.
+
+5. AKMESE, Omer Faruk. Diagnosing Diabetes with Machine Learning Techniques. _Hittite Journal of Science and Engineering_, v. 9, n. 1, p. 09–18, 2022. ISSN 2148–4171. DOI: 10.17350/HJSE19030000250. Disponível em: <https://dergipark.org.tr/en/download/article-file/1970853>. Acesso em: 08 maio 2025.
