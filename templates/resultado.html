@@ -146,13 +146,14 @@
                     <strong>Pressão arterial elevada:</strong> {{ variaveis[2]
                     }} mmHg (valor normal: abaixo de 90 mmHg)
                   </li>
-                  {% endif %} {% if not variaveis[1] > 100 and not variaveis[5]
+                  {% endif %}                  {% if not variaveis[1] > 100 and not variaveis[5]
                   > 25 and not variaveis[6] > 0.5 and not variaveis[7] > 45 and
                   not variaveis[2] > 90 %}
                   <li>Nenhum fator de risco significativo identificado.</li>
                   {% endif %}
                 </ul>
-                {% else %}
+                
+                {% if diagnostico != "Positivo" and diagnostico != 1 %}
                 <p style="margin-top: 1rem">
                   Mesmo com baixo risco, mantenha hábitos saudáveis:
                 </p>
